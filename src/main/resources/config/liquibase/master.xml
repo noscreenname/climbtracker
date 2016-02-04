@@ -11,5 +11,6 @@
     <include file="classpath:config/liquibase/changelog/20160204183922_added_entity_Crag.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160204184132_added_entity_RouteType.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160204185056_added_entity_Route.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204185958_added_entity_Attempt.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
