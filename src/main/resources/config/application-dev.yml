@@ -23,7 +23,7 @@ spring:
         url: jdbc:postgresql://localhost:5432/climbtracker
         name:
         username: climbtracker
-        password:
+        password: climbtracker
     jpa:
         database-platform: a.m.a.domain.util.FixedPostgreSQL82Dialect
         database: POSTGRESQL
