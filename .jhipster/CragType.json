@@ -1,0 +1,19 @@
+{
+    "relationships": [],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "indoor",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "outdoor",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20160204183244",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}
