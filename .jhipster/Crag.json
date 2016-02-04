@@ -1,0 +1,45 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "defaultGradeSystem",
+            "otherEntityName": "gradeSystem",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "location",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "pattern"
+            ],
+            "fieldValidateRulesPattern": "/^(-?\\d{1,2}\\.\\d{6}),(-?\\d{1,2}\\.\\d{6})$/",
+            "fieldValidateRulesPatternJava": "/^(-?\\\\d{1,2}\\\\.\\\\d{6}),(-?\\\\d{1,2}\\\\.\\\\d{6})$/"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "address",
+            "fieldType": "String"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20160204183922",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}

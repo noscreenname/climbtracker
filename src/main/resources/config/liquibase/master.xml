@@ -8,5 +8,6 @@
     <include file="classpath:config/liquibase/changelog/20160204182205_added_entity_GradeSystem.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160204182809_added_entity_Grade.xml" relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160204183244_added_entity_CragType.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204183922_added_entity_Crag.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

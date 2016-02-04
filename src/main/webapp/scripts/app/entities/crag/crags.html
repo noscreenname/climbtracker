@@ -1,0 +1,66 @@
+<div>
+    <h2>Crags</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="crag.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                       >Create new Crag
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Name</span></th>
+                    <th><span>Location</span></th>
+                    <th><span>Address</span></th>
+                    <th><span>Description</span></th>
+                    <th><span>defaultGradeSystem</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="crag in crags track by crag.id">
+                    <td><a ui-sref="crag.detail({id:crag.id})">{{crag.id}}</a></td>
+                    <td>{{crag.name}}</td>
+                    <td>{{crag.location}}</td>
+                    <td>{{crag.address}}</td>
+                    <td>{{crag.description}}</td>
+                    <td>
+                        <a ui-sref="gradeSystem.detail({id:crag.defaultGradeSystem.id})">{{crag.defaultGradeSystem.name}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="crag.detail({id:crag.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="crag.edit({id:crag.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="crag.delete({id:crag.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
