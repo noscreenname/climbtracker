@@ -1,0 +1,80 @@
+
+<div>
+    <h2><span>Route</span> {{route.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span>Name</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{route.name}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>OpenDate</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{route.openDate | date:'mediumDate'}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>IsOpen</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{route.isOpen}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>Description</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{route.description}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>routeTypes</span>
+                </td>
+                <td>
+                    <span ng-repeat="routeTypes in route.routeTypess">
+                        <a class="form-control-static" ui-sref="routeType.detail({id: {{routeTypes.id}}})">{{routeTypes.type}}</a>{{$last ? '' : ', '}}
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>grade</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="grade.detail({id:route.grade.id})">{{route.grade.name}}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>crag</span>
+                </td>
+                <td>
+                    <a class="form-control-static" ui-sref="crag.detail({id:route.crag.id})">{{route.crag.name}}</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+</div>

@@ -1,0 +1,57 @@
+{
+    "relationships": [
+        {
+            "relationshipId": 1,
+            "relationshipName": "routeTypes",
+            "otherEntityName": "routeType",
+            "relationshipType": "many-to-many",
+            "otherEntityField": "type",
+            "ownerSide": true
+        },
+        {
+            "relationshipId": 2,
+            "relationshipName": "grade",
+            "otherEntityName": "grade",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        },
+        {
+            "relationshipId": 3,
+            "relationshipName": "crag",
+            "otherEntityName": "crag",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldId": 1,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": []
+        },
+        {
+            "fieldId": 2,
+            "fieldName": "openDate",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldId": 3,
+            "fieldName": "isOpen",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldId": 4,
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "500"
+        }
+    ],
+    "changelogDate": "20160204185056",
+    "dto": "no",
+    "service": "no",
+    "pagination": "no"
+}
