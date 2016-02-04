@@ -1,0 +1,10 @@
+climbtracker-postgresql:
+  container_name: climbtracker-postgresql
+  image: postgres:9.4.5
+  # volumes:
+  #   - ~/volumes/jhipster/climbtracker/postgresql/:/var/lib/postgresql/
+  environment:
+    - POSTGRES_USER=climbtracker
+    - POSTGRES_PASSWORD=
+  ports:
+    - "5432:5432"
