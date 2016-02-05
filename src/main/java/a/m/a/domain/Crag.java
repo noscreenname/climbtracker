@@ -4,10 +4,10 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
 
 /**
@@ -18,24 +18,31 @@ import java.util.Objects;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Crag implements Serializable {
 
+    public static final int MAX_ADDRESS_LENGTH = 100;
+    public static final int MAX_DESCRIPTION_LENGTH = 500;
+    public static final int MAX_NAME_LENGTH = 100;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
-    @Column(name = "name", nullable = false)
+    @Size(max = MAX_NAME_LENGTH)
+    @Column(name = "name", nullable = false, length = 100)
     private String name;
-    
+
     @Pattern(regexp = "/^(-?\\d{1,2}\\.\\d{6}),(-?\\d{1,2}\\.\\d{6})$/")
     @Column(name = "location")
     private String location;
-    
-    @Column(name = "address")
+
+    @Size(max = MAX_ADDRESS_LENGTH)
+    @Column(name = "address", length = MAX_ADDRESS_LENGTH)
     private String address;
-    
-    @Column(name = "description")
+
+    @Size(max = MAX_DESCRIPTION_LENGTH)
+    @Column(name = "description", length = MAX_DESCRIPTION_LENGTH)
     private String description;
-    
+
     @ManyToOne
     @JoinColumn(name = "default_grade_system_id")
     private GradeSystem defaultGradeSystem;
@@ -51,7 +58,7 @@ public class Crag implements Serializable {
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -59,7 +66,7 @@ public class Crag implements Serializable {
     public String getLocation() {
         return location;
     }
-    
+
     public void setLocation(String location) {
         this.location = location;
     }
@@ -67,7 +74,7 @@ public class Crag implements Serializable {
     public String getAddress() {
         return address;
     }
-    
+
     public void setAddress(String address) {
         this.address = address;
     }
@@ -75,7 +82,7 @@ public class Crag implements Serializable {
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -97,7 +104,7 @@ public class Crag implements Serializable {
             return false;
         }
         Crag crag = (Crag) o;
-        if(crag.id == null || id == null) {
+        if (crag.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, crag.id);

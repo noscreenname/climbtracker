@@ -2,14 +2,14 @@ package a.m.a.domain;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-import java.time.LocalDate;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.Objects;
+import java.util.Set;
 
 /**
  * A Route.
@@ -25,22 +25,22 @@ public class Route implements Serializable {
 
     @Column(name = "name")
     private String name;
-    
+
     @Column(name = "open_date")
     private LocalDate openDate;
-    
+
     @Column(name = "is_open")
     private Boolean isOpen;
-    
+
     @Size(max = 500)
     @Column(name = "description", length = 500)
     private String description;
-    
+
     @ManyToMany
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     @JoinTable(name = "route_route_types",
-               joinColumns = @JoinColumn(name="routes_id", referencedColumnName="ID"),
-               inverseJoinColumns = @JoinColumn(name="route_typess_id", referencedColumnName="ID"))
+        joinColumns = @JoinColumn(name = "routes_id", referencedColumnName = "ID"),
+        inverseJoinColumns = @JoinColumn(name = "route_typess_id", referencedColumnName = "ID"))
     private Set<RouteType> routeTypess = new HashSet<>();
 
     @ManyToOne
@@ -62,7 +62,7 @@ public class Route implements Serializable {
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -70,7 +70,7 @@ public class Route implements Serializable {
     public LocalDate getOpenDate() {
         return openDate;
     }
-    
+
     public void setOpenDate(LocalDate openDate) {
         this.openDate = openDate;
     }
@@ -78,7 +78,7 @@ public class Route implements Serializable {
     public Boolean getIsOpen() {
         return isOpen;
     }
-    
+
     public void setIsOpen(Boolean isOpen) {
         this.isOpen = isOpen;
     }
@@ -86,7 +86,7 @@ public class Route implements Serializable {
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -124,7 +124,7 @@ public class Route implements Serializable {
             return false;
         }
         Route route = (Route) o;
-        if(route.id == null || id == null) {
+        if (route.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, route.id);

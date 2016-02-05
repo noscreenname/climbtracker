@@ -4,6 +4,8 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,16 +19,19 @@ import java.util.Objects;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Grade implements Serializable {
 
+    public static final int MAX_NAME_LENGTH = 20;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "name")
+    @NotNull
+    @Size(max = MAX_NAME_LENGTH)
+    @Column(name = "name", length = 20, nullable = false)
     private String name;
-    
+
     @Column(name = "value")
     private Integer value;
-    
+
     @ManyToOne
     @JoinColumn(name = "grade_system_id")
     private GradeSystem gradeSystem;
@@ -42,7 +47,7 @@ public class Grade implements Serializable {
     public String getName() {
         return name;
     }
-    
+
     public void setName(String name) {
         this.name = name;
     }
@@ -50,7 +55,7 @@ public class Grade implements Serializable {
     public Integer getValue() {
         return value;
     }
-    
+
     public void setValue(Integer value) {
         this.value = value;
     }

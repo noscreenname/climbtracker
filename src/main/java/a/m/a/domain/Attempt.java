@@ -19,6 +19,8 @@ import java.util.Objects;
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class Attempt implements Serializable {
 
+    public static final int MAX_DESCRIPTION_LENGTH = 500;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -26,21 +28,21 @@ public class Attempt implements Serializable {
     @NotNull
     @Column(name = "date", nullable = false)
     private LocalDate date;
-    
-    @Size(max = 500)
-    @Column(name = "description", length = 500)
+
+    @Size(max = MAX_DESCRIPTION_LENGTH)
+    @Column(name = "description", length = MAX_DESCRIPTION_LENGTH)
     private String description;
-    
+
     @NotNull
     @Min(value = 0)
     @Column(name = "nb_fail", nullable = false)
     private Integer nbFail;
-    
+
     @NotNull
     @Min(value = 0)
     @Column(name = "nb_success", nullable = false)
     private Integer nbSuccess;
-    
+
     @ManyToOne
     @JoinColumn(name = "route_id")
     private Route route;
@@ -56,7 +58,7 @@ public class Attempt implements Serializable {
     public LocalDate getDate() {
         return date;
     }
-    
+
     public void setDate(LocalDate date) {
         this.date = date;
     }
@@ -64,7 +66,7 @@ public class Attempt implements Serializable {
     public String getDescription() {
         return description;
     }
-    
+
     public void setDescription(String description) {
         this.description = description;
     }
@@ -72,7 +74,7 @@ public class Attempt implements Serializable {
     public Integer getNbFail() {
         return nbFail;
     }
-    
+
     public void setNbFail(Integer nbFail) {
         this.nbFail = nbFail;
     }
@@ -80,7 +82,7 @@ public class Attempt implements Serializable {
     public Integer getNbSuccess() {
         return nbSuccess;
     }
-    
+
     public void setNbSuccess(Integer nbSuccess) {
         this.nbSuccess = nbSuccess;
     }

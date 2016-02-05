@@ -4,6 +4,7 @@ import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -19,12 +20,16 @@ public class CragType implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "indoor")
+    @NotNull
+    @Column(name = "indoor", nullable = false)
     private Boolean indoor;
-    
-    @Column(name = "outdoor")
+
+    @NotNull
+    @Column(name = "outdoor", nullable = false)
     private Boolean outdoor;
-    
+
+    //TODO add more criteria
+
     public Long getId() {
         return id;
     }
@@ -36,7 +41,7 @@ public class CragType implements Serializable {
     public Boolean getIndoor() {
         return indoor;
     }
-    
+
     public void setIndoor(Boolean indoor) {
         this.indoor = indoor;
     }
@@ -44,7 +49,7 @@ public class CragType implements Serializable {
     public Boolean getOutdoor() {
         return outdoor;
     }
-    
+
     public void setOutdoor(Boolean outdoor) {
         this.outdoor = outdoor;
     }
@@ -58,7 +63,7 @@ public class CragType implements Serializable {
             return false;
         }
         CragType cragType = (CragType) o;
-        if(cragType.id == null || id == null) {
+        if (cragType.id == null || id == null) {
             return false;
         }
         return Objects.equals(id, cragType.id);
