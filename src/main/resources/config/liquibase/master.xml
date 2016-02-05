@@ -4,14 +4,25 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
-    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204182205_added_entity_GradeSystem.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204182809_added_entity_Grade.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204183244_added_entity_CragType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204183922_added_entity_Crag.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204184132_added_entity_RouteType.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204185056_added_entity_Route.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160204185958_added_entity_Attempt.xml" relativeToChangelogFile="false"/>
-    <include file="classpath:config/liquibase/changelog/20160205100700_added_extra_validation.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/00000000000000_initial_schema.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204182205_added_entity_GradeSystem.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204182809_added_entity_Grade.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204183244_added_entity_CragType.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204183922_added_entity_Crag.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204184132_added_entity_RouteType.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204185056_added_entity_Route.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160204185958_added_entity_Attempt.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160205100700_added_extra_validation.xml"
+             relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160205114200_insert_basic_grades.xml"
+             relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>
