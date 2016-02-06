@@ -24,5 +24,6 @@
              relativeToChangelogFile="false"/>
     <include file="classpath:config/liquibase/changelog/20160205114200_insert_basic_grades.xml"
              relativeToChangelogFile="false"/>
+    <include file="classpath:config/liquibase/changelog/20160206134458_added_entity_Preference.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
 </databaseChangeLog>

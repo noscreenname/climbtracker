@@ -1,0 +1,72 @@
+<div>
+    <h2>Preferences</h2>
+    <jh-alert></jh-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="preference.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span 
+                       >Create new Preference
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>user</span></th>
+                    <th><span>gradeSystem</span></th>
+                    <th><span>crag</span></th>
+                    <th><span>route</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="preference in preferences track by preference.id">
+                    <td><a ui-sref="preference.detail({id:preference.id})">{{preference.id}}</a></td>
+                    <td>
+                        {{preference.user.login}}
+                    </td>
+                    <td>
+                        <a ui-sref="gradeSystem.detail({id:preference.gradeSystem.id})">{{preference.gradeSystem.name}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="crag.detail({id:preference.crag.id})">{{preference.crag.name}}</a>
+                    </td>
+                    <td>
+                        <span ng-repeat="route in preference.routes">
+                            <a class="form-control-static" ui-sref="route.detail({id: {{route.id}}})">{{route.id}}</a>{{$last ? '' : ', '}}
+                        <span>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="preference.detail({id:preference.id})"
+                                    class="btn btn-info btn-sm"> 
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="preference.edit({id:preference.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="preference.delete({id:preference.id})"
+                                    class="btn btn-danger btn-sm">                                    
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-xs hidden-sm"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
