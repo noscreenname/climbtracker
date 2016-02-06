@@ -1,12 +1,11 @@
 package a.m.a.web.rest;
 
-import com.codahale.metrics.annotation.Timed;
 import a.m.a.domain.Route;
 import a.m.a.repository.RouteRepository;
 import a.m.a.web.rest.util.HeaderUtil;
+import com.codahale.metrics.annotation.Timed;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -27,10 +26,10 @@ import java.util.Optional;
 public class RouteResource {
 
     private final Logger log = LoggerFactory.getLogger(RouteResource.class);
-        
+
     @Inject
     private RouteRepository routeRepository;
-    
+
     /**
      * POST  /routes -> Create a new route.
      */
@@ -76,8 +75,8 @@ public class RouteResource {
     @Timed
     public List<Route> getAllRoutes() {
         log.debug("REST request to get all Routes");
-        return routeRepository.findAllWithEagerRelationships();
-            }
+        return routeRepository.findAll();
+    }
 
     /**
      * GET  /routes/:id -> get the "id" route.
@@ -88,7 +87,7 @@ public class RouteResource {
     @Timed
     public ResponseEntity<Route> getRoute(@PathVariable Long id) {
         log.debug("REST request to get Route : {}", id);
-        Route route = routeRepository.findOneWithEagerRelationships(id);
+        Route route = routeRepository.findOne(id);
         return Optional.ofNullable(route)
             .map(result -> new ResponseEntity<>(
                 result,
