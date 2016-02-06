@@ -36,13 +36,6 @@ public class Route implements Serializable {
     @Column(name = "description", length = 500)
     private String description;
 
-    @ManyToMany
-    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
-    @JoinTable(name = "route_route_types",
-        joinColumns = @JoinColumn(name = "routes_id", referencedColumnName = "ID"),
-        inverseJoinColumns = @JoinColumn(name = "route_typess_id", referencedColumnName = "ID"))
-    private Set<RouteType> routeTypess = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "grade_id")
     private Grade grade;
@@ -91,15 +84,7 @@ public class Route implements Serializable {
         this.description = description;
     }
 
-    public Set<RouteType> getRouteTypess() {
-        return routeTypess;
-    }
-
-    public void setRouteTypess(Set<RouteType> routeTypes) {
-        this.routeTypess = routeTypes;
-    }
-
-    public Grade getGrade() {
+   public Grade getGrade() {
         return grade;
     }
 

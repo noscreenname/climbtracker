@@ -1,11 +1,10 @@
 'use strict';
 
 angular.module('climbtrackerApp').controller('RouteDialogController',
-    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Route', 'RouteType', 'Grade', 'Crag',
-        function($scope, $stateParams, $uibModalInstance, entity, Route, RouteType, Grade, Crag) {
+    ['$scope', '$stateParams', '$uibModalInstance', 'entity', 'Route', 'Grade', 'Crag',
+        function($scope, $stateParams, $uibModalInstance, entity, Route, Grade, Crag) {
 
         $scope.route = entity;
-        $scope.routetypes = RouteType.query();
         $scope.grades = Grade.query();
         $scope.crags = Crag.query();
         $scope.load = function(id) {

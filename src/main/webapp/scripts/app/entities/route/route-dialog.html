@@ -47,10 +47,6 @@
         </div>
 
         <div class="form-group">
-            <label for="field_routeTypes">routeTypes</label>
-            <select class="form-control" id="field_routeTypes" multiple name="routeTypes" ng-model="route.routeTypess" ng-options="routeType as routeType.type for routeType in routetypes track by routeType.id"></select>
-        </div>
-        <div class="form-group">
             <label for="field_grade">grade</label>
             <select class="form-control" id="field_grade" name="grade" ng-model="route.grade" ng-options="grade as grade.name for grade in grades track by grade.id">
                 <option value=""></option>

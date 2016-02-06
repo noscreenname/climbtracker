@@ -15,6 +15,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "route_type")
 @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+//TODO Remove or at least rework this
 public class RouteType implements Serializable {
 
     public static final int MAX_TYPE_LENGTH = 20;
